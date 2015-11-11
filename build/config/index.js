@@ -23,7 +23,7 @@ config.set('vendor_dependencies', [
   //'react-router',
   'redux',
   'redux-devtools',
-  'redux-devtools/lib/react'
+  //'redux-devtools/lib/react'
 ]);
 
 /*  *********************************************
@@ -69,7 +69,7 @@ const paths = (() => {
         resolve = path.resolve;
 
   const project = (...args) => resolve.apply(resolve, [...base, ...args]);
-  
+
   return {
     project : project,
     src     : project.bind(null, config.get('dir_src')),
@@ -82,14 +82,11 @@ config.set('utils_aliases', [
   'actions',
   'components',
   'constants',
-  'containers',
-  'layouts',
   'reducers',
-  'routes',
-  'services',
+  'store',
   'styles',
   'utils',
-  'views'
+  'vms'
 ].reduce((acc, x) => ((acc[x] = paths.src(x)) && acc), {}));
 
 export default config;

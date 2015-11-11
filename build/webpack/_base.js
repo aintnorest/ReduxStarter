@@ -30,7 +30,7 @@ const webpackConfig = {
     })
   ],
   resolve : {
-    extensions : ["", ".web.js", ".js", ".jsx", ".ts", ".tsx"],
+    extensions : ["", ".web.js", ".js", ".jsx"],
     alias      : config.get('utils_aliases')
   },
   module : {
@@ -42,25 +42,7 @@ const webpackConfig = {
         query   : {
           stage    : 0,
           optional : ['runtime'],
-          env      : {
-            development : {
-              plugins : ['react-transform'],
-              extra   : {
-                'react-transform' : {
-                  transforms : [{
-                    transform : 'react-transform-catch-errors',
-                    imports   : ['react']
-                  }]
-                }
-              }
-            }
-          }
         }
-      },
-      {
-        test : /\.(ts|tsx)$/,
-        exclude : /node_modules/,
-        loaders  : ['babel-loader', 'ts-loader'],
       },
       {
         test    : /\.scss$/,
